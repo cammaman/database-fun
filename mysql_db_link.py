@@ -5,28 +5,28 @@ Created on Mon Jun 27 21:59:51 2016
 @author: hp
 """
 
-#import Quandl
+
 import mysql.connector
 
-cnx = mysql.connector.connect(user='root', password='cammaman',
+cnx = mysql.connector.connect(user='root', password='your_password',
                               host='127.0.0.1',
-                              database='test_sql_schema')
+                              database='your_sql_schema')
                               
 cursor = cnx.cursor()
 
-query = ("SELECT first_name, last_name FROM employees ")
+query = ("SELECT * FROM ..... WHERE (SELECT)... ")
 
 
 cursor.execute(query)
 
-for (first_name, last_name) in cursor:
-  print("{}, {} was hired".format(
-    last_name, first_name))
+#Optional, good starting point to explore query results
+for (first_record_value, second_record_value) in cursor:
+  print("{}, {} are values 1 and 2...".format(
+    first_record_value, second_record_value))
 
 cursor.close()                                                           
 cnx.close()
 
 print "Success"
-#sql_data= Quandl.get(['YAHOO/ASX_FAR_AX','FRED/DCOILBRENTEU'],
-#trim_start='2014-10', authtoken='kAvz8yJfRpGdCoH2qRTx')
+
 
